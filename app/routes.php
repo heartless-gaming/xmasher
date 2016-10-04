@@ -1,5 +1,6 @@
 <?php
 
 $app->get('/kek', function ($request, $response) {
-  return 'Hello World !';
+  return $this->view->render($response, 'home.twig');
 });
+
