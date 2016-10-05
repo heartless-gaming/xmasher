@@ -1,18 +1,18 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-  <form action="{{ path_for('auth.signup') }}" method="post">
+  <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
     <div>
-      <label for="email">Adresse mail</label>
-      <input type="email" name="email" placeholder="example@example.com">
+      <label for="mail">Adresse mail</label>
+      <input type="email" name="mail" placeholder="example@example.com" value="example@example.com" >
     </div>
     <div>
       <label for="name">Pseudo*</label>
-      <input type="text" name="name" placeholder="DarkAngel64">
+      <input type="text" name="name" placeholder="DarkAngel64" value="DarkAngel64" >
     </div>
     <div>
       <label for="password">Password</label>
-      <input type="password" name="password" placeholder="LaReineD'engleterreEst110%SEXY">
+      <input type="password" name="password" placeholder="LaReineD'engleterreEst110%SEXY" value="LaReineD'engleterreEst110%SEXY" >
     </div>
     <button type="submit">S'inscrire</button>
   </form>
