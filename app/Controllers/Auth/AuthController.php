@@ -4,8 +4,9 @@
 */
 namespace Xmasher\Controllers\Auth;
 
-use \Xmasher\Models\User;
+use Xmasher\Models\User;
 use Xmasher\Controllers\Controller;
+use Respect\Validation\Validator as v;
 
 class AuthController extends Controller
 {
@@ -15,6 +16,16 @@ class AuthController extends Controller
   }
 
   public function postSignUp($request, $response) {
+    $validation = $this->validator->validate($request, [
+      'mail' => v::noWhitespace()->notEmpty(),
+      'name' => v::notEmpty()->alpha(),
+      'password' => v::noWhitespace()->notEmpty()
+    ]);
+
+    if ($validation->failed()) {
+      return $response->withRedirect($this->router->pathFor('auth.signup'));
+    }
+
     User::create([
       'mail' => $request->getParam('mail'),
       'name' => $request->getParam('name'),
