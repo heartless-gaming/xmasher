@@ -1,10 +1,7 @@
 <?php
-
 session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
-
-$user = new \Xmasher\Models\User;
 
 $app = new \Slim\App([
   // Slim config
@@ -25,8 +22,8 @@ $app = new \Slim\App([
 
 $container = $app->getContainer();
 
+// Starting Database
 $capsule = new \Illuminate\Database\Capsule\Manager;
-
 $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
@@ -35,6 +32,7 @@ $container['db'] = function ($container) use ($capsule) {
   return $capsule;
 };
 
+// Adding Twig to the view container
 $container['view'] = function ($container) {
   $view = new \Slim\Views\Twig(__DIR__ . '/../ressources/views', [
     'cache' => false
@@ -59,5 +57,8 @@ $container['HomeController'] = function ($container) {
 $container['AuthController'] = function ($container) {
   return new \Xmasher\Controllers\Auth\AuthController($container);
 };
+
+// Adding Middlewares
+$app->add(new \Xmasher\Middleware\ValidationErrorsMiddleware($container));
 
 require __DIR__ . '/../app/routes.php';

@@ -1,7 +1,5 @@
 <?php
-/**
-*
-*/
+
 namespace Xmasher\Controllers;
 
 use Slim\Views\Twig as View;

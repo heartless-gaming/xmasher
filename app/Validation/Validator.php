@@ -1,7 +1,4 @@
 <?php
-/**
-*
-*/
 
 namespace Xmasher\Validation;
 
@@ -11,14 +8,18 @@ use Respect\Validation\Exceptions\NestedValidationException;
 class Validator
 {
   protected $errors;
+
   public function validate($request, array $rules) {
     foreach ($rules as $field => $rule) {
       try {
         $rule->setName(ucfirst($field))->assert($request->getParam($field));
       } catch (NestedValidationException $e) {
-        $this->errors[] = $e->getMessages();
+        $this->errors[$field] = $e->getMessages();
       }
     }
+
+    $_SESSION['kek'] = 'kek';
+    $_SESSION['errors'] = $this->errors;
 
     return $this;
   }

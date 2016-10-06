@@ -1,8 +1,5 @@
 <?php
 
-/**
-*
-*/
 namespace Xmasher\Controllers;
 
 class Controller

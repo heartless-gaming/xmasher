@@ -1,6 +1,7 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
+  {{ errors | jeson_encode }}
   <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
     <div>
       <label for="mail">Adresse mail</label>

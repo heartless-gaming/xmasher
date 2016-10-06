@@ -1,8 +1,5 @@
 <?php
 
-/**
-*
-*/
 namespace Xmasher\Models;
 
 use \Illuminate\Database\Eloquent\Model;
