@@ -1,5 +1,8 @@
 <?php
+
 session_start();
+
+$_SESSION['top'] = 'kek';
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -32,8 +35,9 @@ $container['db'] = function ($container) use ($capsule) {
   return $capsule;
 };
 
-// Adding Twig to the view container
+// Adding app container
 $container['view'] = function ($container) {
+  // Adding twig templating engine to view container
   $view = new \Slim\Views\Twig(__DIR__ . '/../ressources/views', [
     'cache' => false
   ]);

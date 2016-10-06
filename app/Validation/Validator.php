@@ -18,7 +18,6 @@ class Validator
       }
     }
 
-    $_SESSION['kek'] = 'kek';
     $_SESSION['errors'] = $this->errors;
 
     return $this;

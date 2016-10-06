@@ -1,7 +1,6 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-  {{ errors | jeson_encode }}
   <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
     <div>
       <label for="mail">Adresse mail</label>
@@ -16,5 +15,6 @@
       <input type="password" name="password" placeholder="LaReineD'engleterreEst110%SEXY" value="LaReineD'engleterreEst110%SEXY" >
     </div>
     <button type="submit">S'inscrire</button>
+  {{ errors | json_encode }}
   </form>
 {% endblock %}
