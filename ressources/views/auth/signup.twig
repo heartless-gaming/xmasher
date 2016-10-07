@@ -2,7 +2,6 @@
 
 {% block content %}
   {{ errors | json_encode }}
-  {{ old | json_encode }}
   <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
     <div>
       <label for="mail">Adresse mail</label>
