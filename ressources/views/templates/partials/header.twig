@@ -4,7 +4,7 @@
       {% if auth.check %}
         <p>{{ auth.user.name }}</p>
         <p>Paramètre</p>
-        <p>Signout</p>
+        <a href="{{ path_for('auth.signout') }}">Se déconnecter</a>
       {% else %}
         <a href="{{ path_for('auth.signup') }}">S'inscrire</a>
         <a href="{{ path_for('auth.signin') }}">Se connecter</a>
