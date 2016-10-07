@@ -43,8 +43,6 @@ $container['flash'] = function ($c) {
   return new \Slim\Flash\Messages;
 };
 
-
-
 // Adding app container
 $container['view'] = function ($c) {
   // Adding twig templating engine to view container
@@ -57,10 +55,13 @@ $container['view'] = function ($c) {
     $c->request->getUri()
   ));
 
+  // Making some class available in our template.
   $view->getEnvironment()->addGlobal('auth', [
     'check' => $c->auth->check(),
     'user' => $c->auth->user()
   ]);
+
+  $view->getEnvironment()->addGlobal('flash', $c->flash);
 
   return $view;
 };

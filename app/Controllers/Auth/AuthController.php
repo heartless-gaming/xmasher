@@ -31,6 +31,8 @@ class AuthController extends Controller
       return $response->withRedirect($this->router->pathFor('auth.signin'));
     }
 
+    $this->flash->addMessage('info', 'Vous etes maintenant connecter');
+
     return $response->withRedirect($this->router->pathFor('home'));
   }
 
@@ -56,6 +58,8 @@ class AuthController extends Controller
       'name' => $request->getParam('name'),
       'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT)
     ]);
+
+    $this->flash->addMessage('info', 'Votre compte Xmasher est maintenant créer');
 
     // Log the user to his accont after the creation.
     $this->auth->attempt($user->mail, $request->getParam('password'));
