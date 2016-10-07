@@ -31,40 +31,46 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
-$container['db'] = function ($container) use ($capsule) {
+$container['db'] = function ($c) use ($capsule) {
   return $capsule;
 };
 
 // Adding app container
-$container['view'] = function ($container) {
+$container['view'] = function ($c) {
   // Adding twig templating engine to view container
   $view = new \Slim\Views\Twig(__DIR__ . '/../ressources/views', [
     'cache' => false
   ]);
 
   $view->addExtension(new \Slim\Views\TwigExtension(
-    $container->router,
-    $container->request->getUri()
+    $c->router,
+    $c->request->getUri()
   ));
 
   return $view;
 };
 
-$container['validator'] = function ($container) {
+$container['validator'] = function ($c) {
   return new \Xmasher\Validation\Validator;
 };
 
-$container['HomeController'] = function ($container) {
-  return new \Xmasher\Controllers\HomeController($container);
+$container['HomeController'] = function ($c) {
+  return new \Xmasher\Controllers\HomeController($c);
 };
 
-$container['AuthController'] = function ($container) {
-  return new \Xmasher\Controllers\Auth\AuthController($container);
+$container['AuthController'] = function ($c) {
+  return new \Xmasher\Controllers\Auth\AuthController($c);
+};
+
+$container['csrf'] = function ($c) {
+  return new \Slim\Csrf\Guard;
 };
 
 // Adding Middlewares
 $app->add(new \Xmasher\Middleware\ValidationErrorsMiddleware($container));
 $app->add(new \Xmasher\Middleware\oldInputMiddleware($container));
+$app->add(new \Xmasher\Middleware\CsrfViewMiddleware($container));
+$app->add($container->get('csrf'));
 
 // Adding custom form  validation rules
 v::with('Xmasher\\Validation\\Rules\\');
