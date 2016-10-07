@@ -66,6 +66,10 @@ $container['csrf'] = function ($c) {
   return new \Slim\Csrf\Guard;
 };
 
+$container['auth'] = function ($c) {
+  return new \Xmasher\Auth\Auth;
+};
+
 // Adding Middlewares
 $app->add(new \Xmasher\Middleware\ValidationErrorsMiddleware($container));
 $app->add(new \Xmasher\Middleware\oldInputMiddleware($container));
