@@ -1,7 +1,13 @@
 <header>
     <h1>Xmasher - L'hébergeur d'image de la communauté Heartless Gaming</h1>
     <nav>
-        <a href="auth/signup">S'inscrire</a>
-        <a href="auth/signin">Se connecter</a>
+      {% if auth.check %}
+        <p>{{ auth.user.name }}</p>
+        <p>Paramètre</p>
+        <p>Signout</p>
+      {% else %}
+        <a href="{{ path_for('auth.signup') }}">S'inscrire</a>
+        <a href="{{ path_for('auth.signin') }}">Se connecter</a>
+      {% endif %}
     </nav>
 </header>

@@ -35,6 +35,10 @@ $container['db'] = function ($c) use ($capsule) {
   return $capsule;
 };
 
+$container['auth'] = function ($c) {
+  return new \Xmasher\Auth\Auth;
+};
+
 // Adding app container
 $container['view'] = function ($c) {
   // Adding twig templating engine to view container
@@ -46,6 +50,11 @@ $container['view'] = function ($c) {
     $c->router,
     $c->request->getUri()
   ));
+
+  $view->getEnvironment()->addGlobal('auth', [
+    'check' => $c->auth->check(),
+    'user' => $c->auth->user()
+  ]);
 
   return $view;
 };
@@ -66,9 +75,6 @@ $container['csrf'] = function ($c) {
   return new \Slim\Csrf\Guard;
 };
 
-$container['auth'] = function ($c) {
-  return new \Xmasher\Auth\Auth;
-};
 
 // Adding Middlewares
 $app->add(new \Xmasher\Middleware\ValidationErrorsMiddleware($container));

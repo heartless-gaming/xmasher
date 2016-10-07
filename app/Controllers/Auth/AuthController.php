@@ -30,7 +30,6 @@ class AuthController extends Controller
     return $this->view->render($response, 'auth/signup.twig');
   }
 
-
   public function postSignUp($request, $response) {
     $validation = $this->validator->validate($request, [
       'mail' => v::noWhitespace()->notEmpty()->email()->emailAvailaible(),
