@@ -2,8 +2,6 @@
 
 session_start();
 
-$_SESSION['top'] = 'kek';
-
 require __DIR__ . '/../vendor/autoload.php';
 
 $app = new \Slim\App([
@@ -64,5 +62,6 @@ $container['AuthController'] = function ($container) {
 
 // Adding Middlewares
 $app->add(new \Xmasher\Middleware\ValidationErrorsMiddleware($container));
+$app->add(new \Xmasher\Middleware\oldInputMiddleware($container));
 
 require __DIR__ . '/../app/routes.php';

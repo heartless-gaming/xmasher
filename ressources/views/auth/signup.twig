@@ -1,20 +1,21 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
+  {{ errors | json_encode }}
+  {{ old | json_encode }}
   <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off">
     <div>
       <label for="mail">Adresse mail</label>
-      <input type="email" name="mail" placeholder="example@example.com" value="example@example.com" >
+      <input type="email" name="mail" placeholder="example@example.com" value="{{ old.mail }}">
     </div>
     <div>
       <label for="name">Pseudo*</label>
-      <input type="text" name="name" placeholder="DarkAngel" value="DarkAngel" >
+      <input type="text" name="name" placeholder="DarkAngel" value="{{ old.name }}">
     </div>
     <div>
       <label for="password">Password</label>
-      <input type="password" name="password" placeholder="LaReineD'engleterreEst110%SEXY" value="LaReineD'engleterreEst110%SEXY" >
+      <input type="password" name="password" placeholder="LaReineD'engleterreEst110%SEXY">
     </div>
     <button type="submit">S'inscrire</button>
-  {{ errors | json_encode }}
   </form>
 {% endblock %}
