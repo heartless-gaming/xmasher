@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "67276bda6cb9e827c4111a541274fbfe",
-    "content-hash": "718acd8ec9d218126fcbf49fe29b1258",
+    "hash": "aac521f72dc9e4b6655713c874854a87",
+    "content-hash": "1419bad19372ba91dab4434a0e729eb2",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -651,6 +651,51 @@
                 "slim"
             ],
             "time": "2016-06-08 18:26:56"
+        },
+        {
+            "name": "slim/flash",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slimphp/Slim-Flash.git",
+                "reference": "1995ed53b77b8eeb67adf032de93c319f76aa5cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slimphp/Slim-Flash/zipball/1995ed53b77b8eeb67adf032de93c319f76aa5cd",
+                "reference": "1995ed53b77b8eeb67adf032de93c319f76aa5cd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Slim\\Flash\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "hello@joshlockhart.com",
+                    "homepage": "http://joshlockhart.com"
+                }
+            ],
+            "description": "Slim Framework Flash message service provider",
+            "homepage": "http://slimframework.com",
+            "keywords": [
+                "flash",
+                "framework",
+                "message",
+                "provider",
+                "slim"
+            ],
+            "time": "2015-08-16 22:49:06"
         },
         {
             "name": "slim/slim",

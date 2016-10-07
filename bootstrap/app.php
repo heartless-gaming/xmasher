@@ -39,6 +39,12 @@ $container['auth'] = function ($c) {
   return new \Xmasher\Auth\Auth;
 };
 
+$container['flash'] = function ($c) {
+  return new \Slim\Flash\Messages;
+};
+
+
+
 // Adding app container
 $container['view'] = function ($c) {
   // Adding twig templating engine to view container
