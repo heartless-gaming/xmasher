@@ -1,7 +1,7 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-  {% if flash.getMessage('info') %}
+  {% if flash.getMessage('test') %}
     <p>{{ flash.getMessage('test') | first }}</p>
   {% else %}
     <p>Message flash test not received.</p>

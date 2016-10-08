@@ -3,7 +3,7 @@
 {% block content %}
   <div class="o-wrapper--tiny upload-image">
     <div class="upload-image__errors">{{ errors | json_encode }}</div>
-    <form action="{{ path_for('home') }}" method="post" enctype="multipart/form-data" class="upload-image__form">
+    <form action="{{ path_for('upload') }}" method="post" enctype="multipart/form-data" class="upload-image__form">
         <label for="uploadimage" class="upload-image__label">Envoyer une image</label>
         <input type="file" name="uploadimage" accept=".jpg,.jpeg,.png,.gif" class="upload-image__input">
       {{ csrf.field | raw }}
