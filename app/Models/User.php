@@ -11,4 +11,11 @@ class User extends Model
 
   // Writable column list
   protected $fillable = ['name', 'mail', 'password'];
+
+  public function setPassword($password)
+  {
+    $this->update([
+      'password' => password_hash($password, PASSWORD_DEFAULT)
+    ]);
+  }
 }
