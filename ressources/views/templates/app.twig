@@ -2,14 +2,39 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Xmasher - L'hébergeur d'image de la communauté Heartless Gaming</title>
+    {% block head %}
+        <link rel="stylesheet" href="style.css" />
+        <title>{% block title %}Xmasher - Hébergeur d'image{% endblock %}</title>
+        <meta name="description" content="{% block metadescription %}Xmasher est un un hébergeur fais par Heartless Gaming. Le digne descendant de xtropik.{% endblock %}">
+    {% endblock %}
 </head>
 <body>
 {% include 'templates/partials/flash.twig' %}
-{% include 'templates/partials/header.twig' %}
+  <header>
+{% block header %}
+    <h1>{% block pagetitle %}Xmasher - L'hébergeur d'image de la communauté Heartless Gaming{% endblock %}</h1>
+    <nav>
+      <p>
+        <a href="{{ path_for('home') }}">Accueil</a>
+{% if auth.check %}
+        <span>{{ auth.user.name }}</span>
+        <a href="{{ path_for('account') }}">Mon compte</a>
+        <a href="{{ path_for('auth.signout') }}">Se déconnecter</a>
+{% else %}
+        <a href="{{ path_for('auth.signup') }}">S'inscrire</a>
+        <a href="{{ path_for('auth.signin') }}">Se connecter</a>
+{% endif %}
+      </p>
+    </nav>
+{% endblock %}
+</header>
 <main>
   {% block content %}{% endblock %}
 </main>
-{% include 'templates/partials/footer.twig' %}
+{% block footer %}
+  <footer>
+    <p>Here's the footer</p>
+  </footer>
+{% endblock %}
 </body>
 </html>
