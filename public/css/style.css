@@ -453,7 +453,7 @@ body {
   font-size: 1.4rem;
   background-color: #333;
   color: #fff;
-  font-family: sans-serif;
+  font-family: lato, sans-serif;
   line-height: 1.5;
 }
 
@@ -502,12 +502,12 @@ figure {
 
 h1, .h1-like {
   font-size: 3.2rem;
-  font-family: sans-serif;
+  font-family: lato, sans-serif;
 }
 
 h2, .h2-like {
   font-size: 2.8rem;
-  font-family: sans-serif;
+  font-family: lato, sans-serif;
 }
 
 h3, .h3-like {
