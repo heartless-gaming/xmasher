@@ -5,6 +5,10 @@ use Xmasher\Middleware\GuestMiddleware;
 
 $app->get('/', 'HomeController:index')->setName('home');
 
+$app->get('/upload', 'UploadController:getUpload')->setName('upload');
+$app->post('/upload', 'UploadController:postUpload');
+
+
 $app->group('', function () {
   $this->get('/auth/signup', 'AuthController:getSignUp')->setName('auth.signup');
   $this->post('/auth/signup', 'AuthController:postSignUp');

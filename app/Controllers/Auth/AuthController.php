@@ -8,12 +8,6 @@ use Respect\Validation\Validator as v;
 
 class AuthController extends Controller
 {
-  public function getSignOut($request, $response)
-  {
-    $this->auth->logout();
-
-    return $response->withRedirect($this->router->pathFor('home'));
-  }
 
   public function getSignIn($request, $response)
   {
@@ -63,6 +57,13 @@ class AuthController extends Controller
 
     // Log the user to his accont after the creation.
     $this->auth->attempt($user->mail, $request->getParam('password'));
+
+    return $response->withRedirect($this->router->pathFor('home'));
+  }
+
+  public function getSignOut($request, $response)
+  {
+    $this->auth->logout();
 
     return $response->withRedirect($this->router->pathFor('home'));
   }

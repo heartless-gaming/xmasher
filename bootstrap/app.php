@@ -6,8 +6,11 @@ session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = new \Slim\App([
-  // Slim config
+/**
+ * Slim framework & App settings container
+ * @var array
+ */
+$app_settings = [
   'settings' => [
     'displayErrorDetails' => true,
     'db' => [
@@ -19,9 +22,15 @@ $app = new \Slim\App([
       'charset' => 'utf8',
       'collation' => 'utf8_unicode_ci',
       'prefix' => ''
+    ],
+    'image' => [
+      'maxsize' => '5M',
+      'format' => ['image/png', 'image/gif', 'image/jpeg' ]
     ]
   ]
-]);
+];
+
+$app = new \Slim\App($app_settings);
 
 $container = $app->getContainer();
 
@@ -74,6 +83,10 @@ $container['HomeController'] = function ($c) {
   return new \Xmasher\Controllers\HomeController($c);
 };
 
+$container['UploadController'] = function ($c) {
+  return new \Xmasher\Controllers\UploadController($c);
+};
+
 $container['AuthController'] = function ($c) {
   return new \Xmasher\Controllers\Auth\AuthController($c);
 };
@@ -87,13 +100,13 @@ $container['csrf'] = function ($c) {
 };
 
 
-// Adding Middlewares
+// Adding app level Middlewares
 $app->add(new \Xmasher\Middleware\ValidationErrorsMiddleware($container));
-$app->add(new \Xmasher\Middleware\oldInputMiddleware($container));
+// $app->add(new \Xmasher\Middleware\oldInputMiddleware($container));
 $app->add(new \Xmasher\Middleware\CsrfViewMiddleware($container));
 $app->add($container->get('csrf'));
 
-// Adding custom form  validation rules
+// Adding custom form validation rules
 v::with('Xmasher\\Validation\\Rules\\');
 
 require __DIR__ . '/../app/routes.php';
