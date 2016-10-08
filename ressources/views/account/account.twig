@@ -1,0 +1,20 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+<form action="{{ path_for('account') }}" method="post" autocomplete="off">
+{% if errors %}
+  <p>{{ errors | json_encode }}</p>
+{% endif %}
+  <p>Changer le mot de passe</p>
+  <div>
+    <label for="password_old">Mot de passe actuel</label>
+    <input type="password" name="password_old" placeholder="LaReineD'engleterreEst110%SEXY">
+  </div>
+  <div>
+    <label for="password">Nouveau mot de passe</label>
+    <input type="password" name="password" placeholder="LaReineD'engleterreEst110%SEXY">
+  </div>
+  {{ csrf.field | raw }}
+  <button type="submit">S'inscrire</button>
+</form>
+{% endblock %}

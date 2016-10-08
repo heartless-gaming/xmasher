@@ -78,6 +78,10 @@ $container['AuthController'] = function ($c) {
   return new \Xmasher\Controllers\Auth\AuthController($c);
 };
 
+$container['PasswordController'] = function ($c) {
+  return new \Xmasher\Controllers\Auth\PasswordController($c);
+};
+
 $container['csrf'] = function ($c) {
   return new \Slim\Csrf\Guard;
 };
