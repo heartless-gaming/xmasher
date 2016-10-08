@@ -9,7 +9,7 @@ class UploadController extends Controller
 
   public function getUpload($request, $response)
   {
-    return $this->view->render($response, 'upload.twig');
+    return $response->withRedirect($this->container->router->pathFor('home'));
   }
 
   public function postUpload($request, $response)
