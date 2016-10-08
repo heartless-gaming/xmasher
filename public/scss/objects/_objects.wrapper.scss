@@ -1,0 +1,21 @@
+/**
+ * WRAPPERS
+ *
+ * Page-level constraining and wrapping elements.
+ */
+
+$wrapper-width: 1100px !default;
+$wrapper-width-tiny: 320px !default;
+
+.o-wrapper {
+  max-width: $wrapper-width;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Size Variants
+.o-wrapper--tiny {
+  max-width: $wrapper-width-tiny;
+  margin-right: auto;
+  margin-left: auto;
+}

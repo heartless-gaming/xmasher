@@ -1,4 +1,43 @@
 @charset "UTF-8";
+/**
+ * CONTENTS
+ *
+ * INCLUDES
+ * Font.................Includes the font used in the project.
+ * Knacss...............CSS on steroids by Alsacréations.
+ *
+ * OBJECT
+ * Wrapper..............Page constraint object.
+ *
+ * COMPONENTS
+ * Buttons..............
+ *
+ * UTILITIES
+ * Screen reader........
+ *
+ */
+/* Lato Font */
+@font-face {
+  font-family: 'lato';
+  src: url("font/lato-regular/lato-regular.woff2?#iefix") format("woff2"), url("font/lato-regular/lato-regular.woff") format("woff"), url("font/lato-regular/lato-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url("font/lato-bold/lato-bold.woff2?#iefix") format("woff2"), url("font/lato-bold/lato-bold.woff") format("woff"), url("font/lato-bold/lato-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url("font/lato-italic/lato-italic.woff2?#iefix") format("woff2"), url("font/lato-italic/lato-italic.woff") format("woff"), url("font/lato-italic/lato-italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
 /*!
 * www.KNACSS.com V6.0.0 (27 septembre 2016) @author: Alsacreations, Raphael Goetter
 * Licence WTFPL http://www.wtfpl.net/
@@ -2134,5 +2173,38 @@ ul.unstyled {
 /* ==Own stylesheet              */
 /* ----------------------------- */
 /* Here should go your own CSS styles */
+/**
+ * WRAPPERS
+ *
+ * Page-level constraining and wrapping elements.
+ */
+.o-wrapper {
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.o-wrapper--tiny {
+  max-width: 320px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btn {
+  display: block;
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+.page-footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 
 /*# sourceMappingURL=style.map.css */

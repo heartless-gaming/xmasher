@@ -1,9 +1,13 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-
-<div class="topkek">
-    Here's the content block.
-</div>
-
+  {{ errors | json_encode }}
+  <div class="o-wrapper--tiny upload-image">
+    <form action="{{ path_for('auth.signin') }}" method="post" autocomplete="off" class="upload-image__form">
+        <label for="uploadimage" class="upload-image__label">Envoyé une image</label>
+        <input type="file" name="uploadimage" placeholder="example@example.com" value="{{ old.mail }}" class="upload-image__input">
+      {{ csrf.field | raw }}
+      <input type="submit" value="Envoyer l'image" class="btn upload-image__submit">
+    </form>
+  </div>
 {% endblock %}

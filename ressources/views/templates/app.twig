@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+{# <head> #}
     <meta charset="UTF-8">
     {% block head %}
         <link rel="stylesheet" href="{{ path_for('home') }}/css/style.css" />
@@ -10,30 +10,28 @@
 </head>
 <body>
 {% include 'templates/partials/flash.twig' %}
-  <header>
+  <header class="page-header">
 {% block header %}
     <h1>{% block pagetitle %}Xmasher - L'hébergeur d'image de la communauté Heartless Gaming{% endblock %}</h1>
-    <nav>
-      <p>
-        <a href="{{ path_for('home') }}">Accueil</a>
+    <nav class="o-wrapper site-nav">
+        <a href="{{ path_for('home') }}" class="site-nav__link">Accueil</a>
 {% if auth.check %}
-        <span>{{ auth.user.name }}</span>
-        <a href="{{ path_for('account') }}">Mon compte</a>
-        <a href="{{ path_for('auth.signout') }}">Se déconnecter</a>
+        <a href="{{ path_for('account') }}" class="site-nav__link">{{ auth.user.name }}</a>
+        <a href="{{ path_for('account') }}" class="site-nav__link">Mon compte</a>
+        <a href="{{ path_for('auth.signout') }}" class="site-nav__link">Se déconnecter</a>
 {% else %}
-        <a href="{{ path_for('auth.signup') }}">S'inscrire</a>
-        <a href="{{ path_for('auth.signin') }}">Se connecter</a>
+        <a href="{{ path_for('auth.signup') }}" class="site-nav__link">S'inscrire</a>
+        <a href="{{ path_for('auth.signin') }}" class="site-nav__link">Se connecter</a>
 {% endif %}
-      </p>
     </nav>
 {% endblock %}
 </header>
-<main>
+<main class="o-wrapper">
   {% block content %}{% endblock %}
 </main>
 {% block footer %}
-  <footer>
-    <p>Here's the footer</p>
+  <footer class="o-wrapper page-footer">
+    <p>Version Guiltyspark (pré-alpha). Retourver le source code sur le <a href="https://github.com/heartless-gaming/xmasher">github Heartless Gaming</a>.</p>
   </footer>
 {% endblock %}
 <script type="text/javascript" src="{{ path_for('home')}}/js/script.js"></script>
