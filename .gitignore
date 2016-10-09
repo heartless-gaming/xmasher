@@ -40,3 +40,6 @@ build
 *.tar.gz
 *.tar.bz2
 *.zip
+
+# image folder
+i

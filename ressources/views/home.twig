@@ -2,7 +2,7 @@
 
 {% block content %}
   {% if flash.getMessage('imagename') %}
-    <p>{{ flash.getMessage('imagename') | first }}</p>
+    <p>Lien vers l'image : <a href="{{ storage_folder_link }}/{{ flash.getMessage('imagename') | first }}">{{ storage_folder_link }}/{{ flash.getMessage('imagename') | first }}</a></p>
   {% endif %}
   <div class="o-wrapper--tiny upload-image">
     <form action="{{ path_for('upload') }}" method="post" enctype="multipart/form-data" class="upload-image__form">

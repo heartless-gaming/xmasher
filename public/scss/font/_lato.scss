@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'lato';
-    src: url('font/lato-regular/lato-regular.woff2?#iefix') format('woff2'),
+    src: url('../font/lato-regular/lato-regular.woff2?#iefix') format('woff2'),
          url('font/lato-regular/lato-regular.woff') format('woff'),
          url('font/lato-regular/lato-regular.ttf') format('truetype');
     font-weight: normal;
@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'lato';
-    src: url('font/lato-bold/lato-bold.woff2?#iefix') format('woff2'),
+    src: url('../font/lato-bold/lato-bold.woff2?#iefix') format('woff2'),
          url('font/lato-bold/lato-bold.woff') format('woff'),
          url('font/lato-bold/lato-bold.ttf') format('truetype');
     font-weight: bold;
@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: 'lato';
-    src: url('font/lato-italic/lato-italic.woff2?#iefix') format('woff2'),
+    src: url('../font/lato-italic/lato-italic.woff2?#iefix') format('woff2'),
          url('font/lato-italic/lato-italic.woff') format('woff'),
          url('font/lato-italic/lato-italic.ttf') format('truetype');
     font-weight: normal;

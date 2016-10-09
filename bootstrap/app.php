@@ -26,7 +26,8 @@ $app_settings = [
     'image' => [
       'maxsize' => '5M',
       'format' => ['image/png', 'image/gif', 'image/jpeg' ],
-      'storage_path' => '/home/skullmasher/public_html/xmasher/public/i'
+      'storage_foldername' => 'i',
+      'storage_path' => '/home/skullmasher/public_html/xmasher/public/i',
     ]
   ]
 ];
@@ -65,11 +66,18 @@ $container['view'] = function ($c) {
     $c->request->getUri()
   ));
 
-  // Making some class available in our template.
+  // Making some class and variable available in the templates.
   $view->getEnvironment()->addGlobal('auth', [
     'check' => $c->auth->check(),
-    'user' => $c->auth->user()
+    'user' => $c->auth->user(),
   ]);
+
+  $app_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+  $storage_foldername = $c['settings']['image']['storage_foldername'];
+  $storage_folder_link = $app_url . $storage_foldername;
+
+  $view->getEnvironment()->addGlobal('storage_folder_link', $storage_folder_link);
+
 
   $view->getEnvironment()->addGlobal('flash', $c->flash);
 
