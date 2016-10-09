@@ -25,7 +25,8 @@ $app_settings = [
     ],
     'image' => [
       'maxsize' => '5M',
-      'format' => ['image/png', 'image/gif', 'image/jpeg' ]
+      'format' => ['image/png', 'image/gif', 'image/jpeg' ],
+      'storage_path' => '/home/skullmasher/public_html/xmasher/public/i'
     ]
   ]
 ];

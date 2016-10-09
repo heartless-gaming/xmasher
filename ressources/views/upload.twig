@@ -1,9 +1,9 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-  {% if flash.getMessage('test') %}
-    <p>{{ flash.getMessage('test') | first }}</p>
+  {% if flash.getMessage('imagename') %}
+    <p>{{ flash.getMessage('imagename') | first }}</p>
   {% else %}
-    <p>Message flash test not received.</p>
+    <p>Flash message not received.</p>
   {% endif %}
 {% endblock %}
