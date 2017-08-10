@@ -19,4 +19,9 @@
       </a>
     </div>
   {% endif %}
+  {% if flash.getMessage('uploaderrors') %}
+    <div class="h5-like">
+      <p>Image incorrecte ¯\_ツ_/¯</p>
+    </div>
+  {% endif %}
 {% endblock %}

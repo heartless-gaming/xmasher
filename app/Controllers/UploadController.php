@@ -48,8 +48,6 @@ class UploadController extends Controller
 
     try {
       $file->upload();
-
-      // $this->flash->addMessage('imagename', $file->getNameWithExtension());
       $this->flash->addMessage('imagename', $file->getNameWithExtension());
       return $response->withRedirect($this->router->pathFor('home'));
 
