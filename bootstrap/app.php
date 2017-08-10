@@ -8,7 +8,6 @@ require __DIR__ . '/../vendor/autoload.php';
 
 /**
  * Slim framework & App settings container
- * @var array
  */
 $app_settings = [
   'settings' => [
@@ -77,8 +76,6 @@ $container['view'] = function ($c) {
   $storage_folder_link = $app_url . $storage_foldername;
 
   $view->getEnvironment()->addGlobal('storage_folder_link', $storage_folder_link);
-
-
   $view->getEnvironment()->addGlobal('flash', $c->flash);
 
   return $view;
