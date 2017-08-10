@@ -9,27 +9,7 @@ require __DIR__ . '/../vendor/autoload.php';
 /**
  * Slim framework & App settings container
  */
-$app_settings = [
-  'settings' => [
-    'displayErrorDetails' => true,
-    'db' => [
-      'driver' => 'mysql',
-      'host' => '127.0.0.1',
-      'database' => 'xmasher',
-      'username' => 'skullmasher',
-      'password' => '',
-      'charset' => 'utf8',
-      'collation' => 'utf8_unicode_ci',
-      'prefix' => ''
-    ],
-    'image' => [
-      'maxsize' => '5M',
-      'format' => ['image/png', 'image/gif', 'image/jpeg'],
-      'storage_foldername' => 'i',
-      'storage_path' => '/home/skullmasher/public_html/xmasher/public/i',
-    ]
-  ]
-];
+require __DIR__ . '/settings.php'; // settings.php.exemple
 
 $app = new \Slim\App($app_settings);
 
@@ -53,7 +33,6 @@ $container['flash'] = function ($c) {
   return new \Slim\Flash\Messages;
 };
 
-// Adding app container
 $container['view'] = function ($c) {
   // Adding twig templating engine to view container
   $view = new \Slim\Views\Twig(__DIR__ . '/../ressources/views', [
@@ -117,4 +96,5 @@ $app->add($container->get('csrf'));
 // Adding custom form validation rules
 v::with('Xmasher\\Validation\\Rules\\');
 
+// App routes
 require __DIR__ . '/../app/routes.php';

@@ -1,0 +1,22 @@
+<?php
+$app_settings = [
+  'settings' => [
+    'displayErrorDetails' => true,
+    'db' => [
+      'driver' => 'mysql',
+      'host' => '127.0.0.1',
+      'database' => 'xmasher',
+      'username' => 'skullmasher',
+      'password' => '',
+      'charset' => 'utf8',
+      'collation' => 'utf8_unicode_ci',
+      'prefix' => ''
+    ],
+    'image' => [
+      'maxsize' => '5M',
+      'format' => ['image/png', 'image/gif', 'image/jpeg'],
+      'storage_foldername' => 'i',
+      'storage_path' => '/home/skullmasher/public_html/xmasher/public/i',
+    ]
+  ]
+];
