@@ -41,13 +41,17 @@ $indicesServer = array('PHP_SELF',
 'PATH_INFO',
 'ORIG_PATH_INFO') ;
 
-echo '<table cellpadding="10">' ;
-foreach ($indicesServer as $arg) {
-    if (isset($_SERVER[$arg])) {
-        echo '<tr><td>'.$arg.'</td><td>' . $_SERVER[$arg] . '</td></tr>' ;
-    }
-    else {
-        echo '<tr><td>'.$arg.'</td><td>-</td></tr>' ;
-    }
-}
-echo '</table>' ;
+// echo '<table cellpadding="10">' ;
+// foreach ($indicesServer as $arg) {
+//     if (isset($_SERVER[$arg])) {
+//         echo '<tr><td>'.$arg.'</td><td>' . $_SERVER[$arg] . '</td></tr>' ;
+//     }
+//     else {
+//         echo '<tr><td>'.$arg.'</td><td>-</td></tr>' ;
+//     }
+// }
+// echo '</table>' ;
+
+echo "<pre>";
+print_r($_SERVER);
+echo "</pre>";

@@ -10,6 +10,13 @@
     </form>
   </div>
   {% if flash.getMessage('imagename') %}
-    <p>Lien vers l'image : <a href="{{ storage_folder_link }}/{{ flash.getMessage('imagename') | first }}">{{ storage_folder_link }}/{{ flash.getMessage('imagename') | first }}</a></p>
+    <div class="h2-like">
+      <a href="{{ request_scheme }}://{{ storage_folder_link }}/{{ flash.getMessage('imagename') | first }}">
+        {{ storage_folder_link }}/{{ flash.getMessage('imagename') | first }}
+        <div>
+          <img src="{{ request_scheme }}://{{ storage_folder_link }}/{{ flash.getMessage('imagename') | first }}">
+        </div>
+      </a>
+    </div>
   {% endif %}
 {% endblock %}

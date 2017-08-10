@@ -10,20 +10,9 @@
 </head>
 <body>
 {% include 'templates/partials/flash.twig' %}
-  <header class="page-header">
+  <header class="o-wrapper page-header">
 {% block header %}
     <h1>{% block pagetitle %}Xmasher - L'hébergeur d'image de la communauté Heartless Gaming{% endblock %}</h1>
-    <nav class="o-wrapper site-nav">
-        <a href="{{ path_for('home') }}" class="site-nav__link">Accueil</a>
-{% if auth.check %}
-        <a href="{{ path_for('account') }}" class="site-nav__link">{{ auth.user.name }}</a>
-        <a href="{{ path_for('account') }}" class="site-nav__link">Mon compte</a>
-        <a href="{{ path_for('auth.signout') }}" class="site-nav__link">Se déconnecter</a>
-{% else %}
-        <a href="{{ path_for('auth.signup') }}" class="site-nav__link">S'inscrire</a>
-        <a href="{{ path_for('auth.signin') }}" class="site-nav__link">Se connecter</a>
-{% endif %}
-    </nav>
 {% endblock %}
 </header>
 <main class="o-wrapper">
@@ -31,10 +20,9 @@
 </main>
 {% block footer %}
   <footer class="o-wrapper page-footer">
-    <h4>Version pré-alpha Guiltyspark </h4>
-    <p>Durant la période Guiltyspark toutes images et comptes sont susceptibles de disparaitre. Les contributeurs du projet ce reserves le droit de consulter les images durant la version Guiltyspark.</p>
+    <hr>
     <p>Projet sous liscence <a href="https://raw.githubusercontent.com/heartless-gaming/xmasher/master/LICENSE">GNU GPL v3</a>.</p>
-    <p>Retourver le source code sur le <a href="https://github.com/heartless-gaming/xmasher">github Heartless Gaming</a>.</p>
+    <p>Code Source sur le <a href="https://github.com/heartless-gaming/xmasher">github Heartless Gaming</a>.</p>
   </footer>
 {% endblock %}
 <script type="text/javascript" src="{{ path_for('home')}}/js/script.js"></script>

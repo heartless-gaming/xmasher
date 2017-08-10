@@ -71,10 +71,12 @@ $container['view'] = function ($c) {
     'user' => $c->auth->user(),
   ]);
 
+  $request_scheme = $_SERVER['REQUEST_SCHEME']; // returns http or https
   $app_url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
   $storage_foldername = $c['settings']['image']['storage_foldername'];
   $storage_folder_link = $app_url . $storage_foldername;
 
+  $view->getEnvironment()->addGlobal('request_scheme', $request_scheme);
   $view->getEnvironment()->addGlobal('storage_folder_link', $storage_folder_link);
   $view->getEnvironment()->addGlobal('flash', $c->flash);
 
